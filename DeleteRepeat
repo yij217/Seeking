@@ -1,0 +1,30 @@
+
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+// -------------------------------------------------------------------------
+/**
+ * 去除重复字符并排序
+ *
+ */
+public class HuaweiTest
+{
+    public static void main(String args[])
+    {
+        Scanner scan = new Scanner(System.in);
+        String input = scan.nextLine();
+        String output = "";
+
+        HashMap<Integer, Character> map = new HashMap();
+        for (int i = 0; i < input.length(); i++)
+        {
+            if (!map.containsValue(input.charAt(i)))
+            {
+                map.put(i, input.charAt(i));
+                output += input.charAt(i);
+            }
+        }
+        System.out.println(output);
+    }
+}
