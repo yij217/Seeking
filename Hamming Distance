@@ -1,0 +1,32 @@
+class Solution {
+//My answer
+    public int hammingDistance(int x, int y) {
+        String xbin=Integer.toBinaryString(x);
+        String ybin=Integer.toBinaryString(y);
+        int count=0;
+        String sshort=xbin;
+        String slong=ybin;
+            
+        if(xbin.equals(ybin)){
+            return 0;
+        }else{
+            int diff= xbin.length()-ybin.length();
+            if(diff>0){
+                sshort=ybin;
+                slong=xbin;
+            }
+            for(int i=1;i<=slong.length();i++){
+                if(i<=sshort.length()){
+                    if(sshort.charAt(sshort.length()-i)!=slong.charAt(slong.length()-i)){
+                        count++;
+                    }
+                }else{
+                    if(slong.charAt(slong.length()-i)!='0'){
+                        count++;
+                    }
+                }         
+            }
+        }
+        return count;
+    }
+}
